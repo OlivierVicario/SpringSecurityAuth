@@ -15,6 +15,7 @@ import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +27,17 @@ public class LoginController {
 	public LoginController(OAuth2AuthorizedClientService authorizedClientService) {
 		this.authorizedClientService = authorizedClientService;
 	}
+	//*********************************************************** from baeldung.com/spring-security-jdbc-authentication
+	@RestController
+	@RequestMapping("/principal")
+	public class UserController {
 
+	    @GetMapping
+	    public Principal retrievePrincipal(Principal principal) {
+	        return principal;
+	    }
+	}
+//**************************************************************
 	@RequestMapping("/**")
 	@RolesAllowed("USER")
 	public String getUser() {

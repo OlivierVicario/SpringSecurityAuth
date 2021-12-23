@@ -28,7 +28,7 @@ public class SpringWebAppTests {
 
 	@Autowired
 	private WebApplicationContext context;
-
+/*
 	@Test
 	public void shouldReturnDefaultMessage() throws Exception {
 		mock.perform(get("/login")).andDo(print()).andExpect(status().isOk());
@@ -48,4 +48,5 @@ public class SpringWebAppTests {
 	public void setup() {
 		mock = MockMvcBuilders.webAppContextSetup(context).apply(springSecurity()).build();
 	}
+	*/
 }
